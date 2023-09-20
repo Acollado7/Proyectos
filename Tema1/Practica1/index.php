@@ -29,14 +29,18 @@
         <p><label for="archivo">Incluir mi foto: </label>
         <input type="file" name="archivo" id="archivo" accept="image/*"></p>
 
-        <p><label for="nacimiento">Nacido en:</label><br/>
-        <input type="" name="nacimiento" id="nacimiento"></p>
+        <p><label for="nacimiento">Nacido en:</label>
+        <select id="nacimiento" name="nacimiento">
+            <option value="malaga" >Malaga</option>
+            <option value="estepona">Estepona</option> 
+            <option value="marbella"selected>Marbella</option>     
+        </select></p>
 
         <p><label for="comentarios">Comentarios</label>
         <textarea id="comentarios" name="comentarios" rows="4" cols="20"></textarea></p>
 
         <p><label for="sub"></label>
-        <input type="checkbox" name="sub" id="sub"><span>Subcribirse al boletin de novedades</span></p>
+        <input type="checkbox" name="sub" id="sub" checked><span>Subscribirse al boletin de novedades</span></p>
         
         <p>
 
