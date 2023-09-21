@@ -21,19 +21,19 @@ if(isset($_POST["enviar"])){
 
             
                 if(isset($_POST["deportes"])){
-                    echo"<p><strong>Aficciones: ".$_POST["deportes"]."</Strong> Deportes: Si</p>";
+                    echo"<p><strong>Aficciones: </Strong>".$_POST["deportes"]." </p>";
                 }else{
-                    echo"<p><strong>Aficiones: </Strong> Deportes: No</p>";
+                    echo"<p><strong>Aficiones: </Strong> Deportes: Off</p>";
                 }
                 if(isset($_POST["lectura"])){
-                    echo"<p><strong>Aficciones: ".$_POST["lectura"]."</Strong> Lectura: Si</p>";
+                    echo"<p><strong>Aficciones: </Strong>".$_POST["lectura"]." </p>";
                 }else{
-                    echo"<p><strong>Aficiones: </Strong> Lectura: No</p>";
+                    echo"<p><strong>Aficiones: </Strong> Lectura: Off</p>";
                 }
                 if(isset($_POST["otros"])){
-                    echo"<p><strong>Aficciones:".$_POST["otros"]." </Strong> Otros: Si</p>";
+                    echo"<p><strong>Aficciones: </Strong>".$_POST["otros"]."/p>";
                 }else{
-                    echo"<p><strong>Aficiones: </Strong> Otros: No</p>";
+                    echo"<p><strong>Aficiones: </Strong> Off</p>";
                 }
 
         
