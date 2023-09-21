@@ -1,3 +1,6 @@
+<?php
+if(isset($_POST["enviar"])){
+?>
 
 
 
@@ -16,7 +19,7 @@
             echo "<p><strong>Nacido en : </Strong>".$_POST["nacimiento"]."</p>";
 
 
-            if(isset($_POST["aficiones"])){
+            
                 if(isset($_POST["deportes"])){
                     echo"<p><strong>Aficciones: ".$_POST["deportes"]."</Strong> Deportes: Si</p>";
                 }else{
@@ -32,10 +35,7 @@
                 }else{
                     echo"<p><strong>Aficiones: </Strong> Otros: No</p>";
                 }
-            }else {
-                echo"<p><strong>Aficiones: </Strong> No </p>";
 
-            }
         
         if (isset($_POST["sexo"])) {
             echo "<p><strong>Sexo: </Strong>".$_POST["sexo"]."</p>";
@@ -61,4 +61,10 @@
 </body>
 </html>
 
-<?php  
+<?php 
+}else {
+           
+    header("Location:index.php");
+        }
+        
+?>
