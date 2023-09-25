@@ -17,11 +17,8 @@
     <h1>Esta es mi super página</h1>
     <form action="index.php" method="post" enctype="multipart/form-data">
         <p><label for="nombre">Nombre</label> <br />
-            <input type="text" name="nombre" id="nombre" value="<?php if (isset($_POST["nombre"])) {
-                                                                    echo $_POST["nombre"];
-                                                                } ?>">
-
-            <?php
+            <input type="text" name="nombre" id="nombre" value="<?php if (isset($_POST["nombre"])) {echo $_POST["nombre"];
+            } ?>"><?php
             if (isset($_POST["enviar"]) && $error_nombre) {
                 echo "<span class='error'>Campo Vacio*</span>";
             }
@@ -48,10 +45,21 @@
             ?>
         </p>
 
-        <p><label for="aficiones">Aficiones: </label>
-            <span>Deportes</span><input type="checkbox" name="deportes" id="deportes" value="1">
-            <span>Lectura</span><input type="checkbox" name="lectura" id="lectura" value="2">
-            <span>Otros</span><input type="checkbox" name="otros" id="otros" value="3">
+        <p>Aficiones:
+            <label for="deportes">Deportes</label>
+            <input type="checkbox" name="aficiones[]" id="deportes" value="Deportes" <?php
+                if (isset($_POST["aficiones"])&& enArray ("Deportes". $_POST["aficiones"]))echo "checked";
+                ?>>
+            <label for="lectura">Lectura</label>
+            <input type="checkbox" name="aficiones[]" id="lectura" value="Lectura"
+            <?php
+                if (isset($_POST["aficiones"])&& enArray ("Lectura". $_POST["aficiones"]))echo "checked";
+                ?>>
+            <label for="otros">Otros</label>
+            <input type="checkbox" name="aficiones[]" id="otros" value="Otros"
+            <?php
+                if (isset($_POST["aficiones"])&& enArray ("Otros". $_POST["aficiones"]))echo "checked";
+                ?>>
         </p>
 
         <p><label for="comentarios">Comentarios: </label>

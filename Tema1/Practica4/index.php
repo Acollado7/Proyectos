@@ -1,5 +1,18 @@
 <?php
 
+    function enArray ($valor,$array){
+        $esta = false;
+        for ($i=0; $i < count($array); $i++) { 
+            if ($array[$i] == $valor) {
+            $esta = true;
+            break;
+                
+            }
+        }
+
+        return $esta;
+    }
+
     if(isset($_POST["enviar"]))//Compruebo errores
     {
         $error_nombre=$_POST["nombre"]=="";

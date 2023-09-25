@@ -21,29 +21,19 @@
     }
 
 
-    if (isset($_POST["aficiones"]) !="1" && $_POST["aficiones"] != "2"&& $_POST["aficiones"] != "3") {
-        echo "<p><strong>No has seleccionado ninguna aficion</strong></p>";
-
-    }else if(isset($_POST["deportes"]) == "1" && $_POST["lectura"] == "2" && $_POST["otros"] == "3"){
-        echo "<p><strong> " . $_POST["deportes"] . "</Strong>     Deportes</p>";
-        echo "<p><strong> " . $_POST["lectura"] . "</Strong>     Lectura </p>";
-        echo "<p><strong>" . $_POST["otros"] . " </Strong>  Otros</p>";
-    }else if (isset($_POST["deportes"]) == "1" && $_POST["lectura"] == "2" && $_POST["otros"] !="3") {
-        echo "<p><strong> " . $_POST["deportes"] . "</Strong>     Deportes</p>";
-        echo "<p><strong> " . $_POST["lectura"] . "</Strong>     Lectura </p>";
-    }else if (isset($_POST["deportes"]) == "1" && $_POST["otros"] == "3" && $_POST["lectura"] !="2") {
-        echo "<p><strong> " . $_POST["deportes"] . "</Strong>     Deportes</p>";
-        echo "<p><strong>" . $_POST["otros"] . " </Strong>  Otros</p>";
-    }else if (isset($_POST["lectura"]) == "2" && $_POST["otros"] == "3" && $_POST["deportes"] !="1") {
-            
-    }else if(isset($_POST["deportes"]) == "1") {
-        echo "<p><strong> " . $_POST["deportes"] . "</Strong>     Deportes</p>";
-    }else if (isset($_POST["lectura"]) == "2") {
-        echo "<p><strong> " . $_POST["lectura"] . "</Strong>     Lectura </p>";
-    }else if(isset($_POST["otros"]) == "3"){
-        echo "<p><strong>" . $_POST["otros"] . " </Strong>  Otros</p>";
+    if(!isset($_POST["aficiones"])){
+        echo "<p> <Strong>No has seleccionado niguna aficion</Strong></p>";
+    }else if(count($_POST["aficiones"])==1){
+        echo "<p>La Aficion seleccionada ha sido: </p>" ;
+        echo"<ol> <li>".$_POST["aficiones"][0]."</li></ol>";
+    }else{
+        echo "<p>Las Aficiones seleccionadas han sido: </p>" ;
+        echo"<ol> ";
+        for ($i=0; $i < count($_POST["aficiones"]); $i++) { 
+            echo "<li>".$_POST["aficiones"][$i]."</li>";
+        }
+        echo "</ol>";
     }
-
      if (isset($_POST["comentarios"])== $_POST["comentarios"]) {
         echo "<p><strong>El comentario enviado ha sido: </Strong>" . $_POST["comentarios"] . "</p>";
      }else{
@@ -51,14 +41,6 @@
      } 
 
     
-    
-
-
-
-
-  
-
-
     ?>
 </body>
 
