@@ -1,5 +1,8 @@
 <?php
 
+if (isset($_POST["borrar"])) {
+    unset($_POST);
+}
 $error_form = false;
 
 if (isset($_POST["guardar"])) { //compruebo el posible error
@@ -116,7 +119,7 @@ if (isset($_POST["guardar"]) && !$error_form) {
             <p>
 
                 <button type="submit" name="guardar">Guardar cambios</button>
-                <button type="reset" name="borrar">Borrar los datos introducidos</button>
+                <button type="submit" name="borrar">Borrar los datos introducidos</button>
             </p>
         </form>
     </body>
