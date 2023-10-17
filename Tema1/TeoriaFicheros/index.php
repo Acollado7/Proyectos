@@ -23,6 +23,10 @@
 
 
         fclose($fd1);
+        $todo_contenido = file_get_contents("prueba.txt");
+        //echo "<pre>".$todo_contenido."</pre>";
+        echo nl2br($todo_contenido);
+
     ?>
 </body>
 </html>
