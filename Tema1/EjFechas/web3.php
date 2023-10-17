@@ -42,7 +42,7 @@
             $diferencia = $diferencia * -1;
         }
 
-        $diferencia = $diferencia / 86400;
+        $diferencia = round($diferencia / 86400 , 0);
         echo "<div class='resultado'><h1>Fechas - Resultado</h1><p>La diferencia entre las dos fechas es de $diferencia dias</p></div>";
     }
     ?>
