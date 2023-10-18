@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <title>Ejercicio 5 - Modificado</title>
+    <title>Ejercicio 6</title>
     <meta charset="UTF-8" />
     <style>
         table {
@@ -19,20 +19,18 @@
 </head>
 
 <body>
-    <h1>Ejercicio 5 - Modificado</h1>
+    <h1>Ejercicio 6</h1>
 
     <form method="post">
         <label for="country">Selecciona un país:</label>
         <select name="country" id="country">
             <?php
-            // Lee el archivo y crea opciones en el select con las iniciales de los países
             $fd = fopen("http://dwese.icarosproject.com/PHP/datos_ficheros.txt", "r");
             if (!$fd) {
                 die("<p>No se ha podido abrir la fuente de los datos</p>");
             }
 
-            $header = fgets($fd); // Leer la primera línea (encabezado)
-
+            $header = fgets($fd); 
             while ($row = fgets($fd)) {
                 $data = explode("\t", $row);
                 $initials = $data[0];
@@ -49,18 +47,15 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $selectedCountry = $_POST['country'];
 
-        // Reabre el archivo para encontrar y mostrar los datos del país seleccionado
         $fd = fopen("http://dwese.icarosproject.com/PHP/datos_ficheros.txt", "r");
         if (!$fd) {
             die("<p>No se ha podido abrir la fuente de los datos</p>");
         }
 
-        // Muestra la tabla de datos para el país seleccionado
         $found = false;
         echo "<table>";
         echo    "<caption>PIB per cápita de $selectedCountry</caption>";
 
-        // Leer el encabezado
         $header = fgets($fd);
         $columns = explode("\t", $header);
         $n_columns = count($columns);

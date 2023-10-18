@@ -29,14 +29,11 @@
         die("<p>No se ha podido abrir la fuente de los datos</p>");
     }
 
-    //Como no se puede meter una p en una tabla se hace esto
     echo "<table>";
     echo    "<caption>PIB per cápita de los paises de la Unión Europea</caption>";
 
-    //Guardamos la fila en una variable
     $fila = fgets($fd);
 
-    //Guardamos los datos separados en una variable 
     $datos_fila = explode("\t", $fila);
 
     $n_columns = count($datos_fila);
@@ -65,5 +62,4 @@
     fclose($fd);
     ?>
 </body>
-
 </html>
