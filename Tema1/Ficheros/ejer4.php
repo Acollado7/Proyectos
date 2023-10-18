@@ -7,8 +7,8 @@
     <h1>Contador de Palabras</h1>
 
     <form action="ejer4.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".txt" />
-        <input type="submit" value="Contar Palabras" />
+      <p><input type="file" name="file" accept=".txt" /></p>  
+        <p><input type="submit" value="Contar Palabras" /></p>
     </form>
 
 <?php
