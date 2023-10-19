@@ -22,8 +22,8 @@
     <h1>Ejercicio 6</h1>
 
     <form method="post">
-        <label for="country">Selecciona un país:</label>
-        <select name="country" id="country">
+        <label for="pais">Selecciona un país:</label>
+        <select name="pais" id="pais">
             <?php
             $fd = fopen("http://dwese.icarosproject.com/PHP/datos_ficheros.txt", "r");
             if (!$fd) {
@@ -45,7 +45,7 @@
 
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $selectedCountry = $_POST['country'];
+        $selectedpais = $_POST['pais'];
 
         $fd = fopen("http://dwese.icarosproject.com/PHP/datos_ficheros.txt", "r");
         if (!$fd) {
@@ -54,7 +54,7 @@
 
         $found = false;
         echo "<table>";
-        echo    "<caption>PIB per cápita de $selectedCountry</caption>";
+        echo    "<caption>PIB per cápita de $selectedpais</caption>";
 
         $header = fgets($fd);
         $columns = explode("\t", $header);
@@ -68,7 +68,7 @@
 
         while ($row = fgets($fd)) {
             $data = explode("\t", $row);
-            if ($data[0] === $selectedCountry) {
+            if ($data[0] === $selectedpais) {
                 $found = true;
                 echo "<tr>";
                 for ($i = 0; $i < $n_columns; $i++) {
@@ -81,7 +81,7 @@
         echo "</table>";
 
         if (!$found) {
-            echo "<p>No se encontraron datos para $selectedCountry</p>";
+            echo "<p>No se encontraron datos para $selectedpais</p>";
         }
 
         fclose($fd);
