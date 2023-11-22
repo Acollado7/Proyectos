@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Ajax</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        function valido() {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.responseText)
+                    }
+                };
+                xmlhttp.open("GET", "login.php?usuario=" + document.getElementById("usuario").value+"&password=" + document.getElementById("password").value, true);
+                xmlhttp.send();
+        }
+    </script>
+
+    <p>Introduzca usuario y password</p>
+    <div id="contenido">
+        <input type="text" name="usuario" id="usuario" placeholder="usuario"> <br>
+        <input type="password" name="password" id="password" placeholder="password"> <br>
+        <button type="submit" name="login" id="login" onclick=valido()>Log in</button>
+    </div>
+</body>
+
+</html>

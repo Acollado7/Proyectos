@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Godos</title>
+</head>
+
+<body>
+    <h1>Reyes Godos</h1>
+    <div id="texto"></div>
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        var url = "godos.php";
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var listaNombres = JSON.parse(this.responseText).reyesgodos;
+                reyesGodos(listaNombres, document.getElementById("texto"));
+            }
+        };
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+
+        let texto = document.getElementById("texto");
+
+        function reyesGodos(lista, clase) {
+            let ul = document.createElement("ul");
+            clase.appendChild(ul);
+            lista.map(i => {
+                let li = document.createElement("li");
+                ul.appendChild(li);
+                if (typeof i == "object") {
+                    let nombre = document.createTextNode(i.nombre);
+                    li.appendChild(nombre);
+                    reyesGodos(i.hijos, li);
+                } else {
+                    let nombre = document.createTextNode(i);
+                    li.appendChild(nombre);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
